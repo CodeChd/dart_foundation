@@ -1,7 +1,9 @@
+import 'dart:math';
+
 void main() {
-  // int num1 = 1;
-  // double num2 = 3.0;
-  // bool isTrue = false;
+  int num1 = 1;
+  double num2 = 3.0;
+  bool isTrue = false;
 
   // print((num1 + num2) is int); IS operator look at the sum of variable if it's INTEGER or DOUBLE (true or false)
   // print((num1 + num2).runtimeType);  look at the sum variable result DATA TYPE!
@@ -178,24 +180,107 @@ void main() {
 // }
 
   // var yuck = Rectangles(25, 67); Positional Argument
-  var yuck = Rectangles(width: 45, height: 67);
-  yuck.area;
+  // var yuck = Rectangles(width: 45, height: 67);
+  // yuck.area;
 
-  print(yuck.area);
+  // print(yuck.area);
+
+  {
+    // class Rectangles {
+//   // final int width; this two are like for positional arguments
+//   // final int height;
+//   late final int area;
+//   String? naem; // adding addtional parameters/arguments
+
+//   // Rectangles(this.height, this.width, [this.naem]) { this one too1
+//   //   area = width * height;
+//   // }
+
+//   Rectangles({required int width, required int height}) {
+//     // for initiating named argument
+//     area = width * height;
+//   }
+// }
+  }
+
+// //Class named Constructors
+//   var p1 = Point.fromMap({'lat': 23, 'lng': 50});
+//   var p2 = Point.fromList([23, 50]);
+
+//   print('$p1 and $p2');
+// }
+
+// class Point {
+//   double lat = 0;
+//   double lng = 0;
+
+//   // Named constructor
+//   Point.fromMap(Map data) {
+//     lat = data['lat'];
+//     lng = data['lng'];
+//   }
+
+//   Point.fromList(List data) {
+//     lat = data[0];
+//     lng = data[1];
+//   }
+
+//INTERFACE lets us hide method/function we dont want other files to see or developers appear on their intellesense
+
+//   var saySomethin1 = Elephant("hello");
+
+//   print(saySomethin1.sayHi());
+// }
+
+// class Elephant {
+//   // Public interface
+//   final String name;
+
+//   // In the interface, but visible only in this library. (private)
+//   final int _id = 23;
+
+//   // Not in the interface, since this is a constructor.
+//   Elephant(this.name);
+
+//   // Public method.
+//   sayHi() => 'My name is $name.';
+
+//   // Private method.
+//   _saySecret() => 'My ID is $_id.';
+// }
+
+// // Abstract class only works in only one file and cant be instantitiated but can inherit its functionality by other classes
 }
 
-class Rectangles {
-  // final int width; this two are like for positional arguments
-  // final int height;
-  late final int area;
-  String? naem; // adding addtional parameters/arguments
+abstract class Dog {
+  void walk() {
+    print('walking...');
+  }
+}
 
-  // Rectangles(this.height, this.width, [this.naem]) { this one too1
-  //   area = width * height;
-  // }
+class Pug extends Dog {
+  String breed = 'pug';
 
-  Rectangles({required int width, required int height}) {
-    // for initiating named argument
-    area = width * height;
+  @override // good practice to use override keyword when modifiying a method or its parent class
+  void walk() {
+    super.walk();
+    print('I am tired. Stopping now.');
+  }
+}
+
+// MIXINS
+mixin Strong {
+  bool doesLift = true;
+
+  void benchPress() {
+    print('doing bench press...');
+  }
+}
+
+mixin Fast {
+  bool doesRun = true;
+
+  void sprint() {
+    print('running fast...');
   }
 }
